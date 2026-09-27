@@ -129,7 +129,7 @@ jobs:
           name: semgrep-report
           path: semgrep-report.json
 ```
-## 3. 软件成分分析 SCA (Trivy)
+# 3. 软件成分分析 SCA (Trivy)
 
 ### 部署
 
@@ -175,7 +175,7 @@ jobs:
           name: trivy-sca-report
           path: trivy-sca-report.json
 ```
-## 4. 容器镜像漏洞扫描 (Trivy)
+# 4. 容器镜像漏洞扫描 (Trivy)
 
 ### 部署
 
@@ -223,56 +223,7 @@ jobs:
           name: trivy-image-report
           path: trivy-image-report.json
 ```
-## 5. 容器镜像漏洞扫描 (Trivy)
-
-### 部署
-
-```
-# Linux安装Trivy
-curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
-```
-
-### 使用命令
-
-- 扫描本地镜像
-
-```
-trivy image myapp:v1
-```
-
-- JSON 格式输出报告
-
-```
-trivy image -f json -o trivy-image-report.json myapp:v1
-```
-
-## GitHub Action 自动触发（放到仓库 `.github/workflows/trivy-image.yml`）
-
-```
-name: Trivy容器镜像扫描
-on: [push, pull_request]
-jobs:
-  trivy-image:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 检出代码
-        uses: actions/checkout@v4
-      - name: 构建镜像
-        run: docker build -t myapp:v1 .
-      - name: 镜像漏洞扫描
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: myapp:v1
-          format: json
-          output: trivy-image-report.json
-      - name: 上传扫描报告
-        uses: actions/upload-artifact@v4
-        with:
-          name: trivy-image-report
-          path: trivy-image-report.json
-```
-
-## 6. K8s 准入控制 (Gatekeeper)
+# 5. K8s 准入控制 (Gatekeeper)
 
 ### 部署
 
@@ -331,7 +282,7 @@ jobs:
 ```
 
 
-## 7. 动态应用安全测试 DAST (OWASP ZAP)
+# 6. 动态应用安全测试 DAST (OWASP ZAP)
 
 ### 部署
 
@@ -378,7 +329,7 @@ jobs:
           name: zap-report
           path: zap-report.json
 ```
-## 8. 容器运行时安全 (Falco)
+# 7. 容器运行时安全 (Falco)
 
 ### 部署
 
