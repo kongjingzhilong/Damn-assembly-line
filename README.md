@@ -27,7 +27,7 @@ Falco 容器运行时行为监控(生产环境持续告警)
 ```
 
 1. Gitleaks Secret 密钥扫描 🔑👀（抓硬编码密钥）
-2. Bandit Python SAST 扫描 🐍🤕（揪 Python 漏洞）
+2. Bandit Python SAST 扫描 🐍🤕（揪 Python 漏洞）[can't find]
 3. Semgrep 通用 SAST 扫描 🧐⚡自定义规则
 4. Trivy SCA 依赖扫描 📦💣（第三方包炸弹）
 5. Trivy 容器镜像扫描 🐳🔍
